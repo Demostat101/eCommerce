@@ -1,0 +1,45 @@
+
+
+.ReadMore{
+    width: 100%;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    padding: 2em;
+}
+
+.readmore{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    border: 1px solid hsla(0, 0%, 70%, 0.3);
+    box-shadow: 5px 5px 5px hsla(0, 0%, 50%, 0.1);
+    padding: 1em;
+}
+
+.readmore img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.description{
+    margin-block: 15px;
+    font-weight: 500;
+}
+
+.Btn{
+    width: 100px;
+    height: 30px;
+    font-weight: 700;
+    margin-top: 1em;
+}
+
+.category{
+    font-weight: 500;
+    margin-block: 1em;
+}

@@ -1,0 +1,40 @@
+.home{
+    width: 100%;
+    height: 92vh;
+    padding: 4em 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.all img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.all{
+    width: 250px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    text-wrap: nowrap;
+    overflow: hidden;
+    border: 1px solid hsla(0, 0%, 70%, 0.3);
+    padding: 1em;
+}
+
+span{
+    font-weight: 600;
+}
+
+.title{
+    margin-block: 10px;
+}
+
+.btn{
+    width: 100%;
+}
