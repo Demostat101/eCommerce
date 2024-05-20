@@ -2,10 +2,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import "./ReadMore.css"
+import { cartContext } from '../../contextComponent/Context'
+
 
 
 
 const ReadMore = () => {
+
+
+    const {state, dispatch} = cartContext()
     
     const [allData, setAllData] = useState({});
     
@@ -47,7 +52,8 @@ const ReadMore = () => {
                                 <div>{allData.title}</div>
                                 <div className='description'>{allData.description}</div>
                                 <div><span>$ {allData.price}</span></div>
-                                <button className='Btn'>ADD TO CART</button>
+                              
+                                <button className='Btn' onClick={()=>dispatch({type:"ADD", payload:allData})}>ADD TO CART</button>
                                
                             </div>
                         
