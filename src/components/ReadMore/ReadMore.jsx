@@ -10,7 +10,7 @@ import { cartContext } from '../../contextComponent/Context'
 const ReadMore = () => {
 
 
-    const {state, dispatch} = cartContext()
+    const {dispatch} = cartContext()
     
     const [allData, setAllData] = useState({});
     

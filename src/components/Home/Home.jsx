@@ -12,10 +12,7 @@ const Home = () => {
 
     const [allData, setAllData] = useState([]);
 
-    const {state, dispatch} = cartContext()
-
-    console.log(state);
-    // console.log(dispatch);
+    const {dispatch} = cartContext()
     
 
   const apiData = async ()=> {
@@ -88,6 +85,7 @@ const Home = () => {
 
                     <div><span>$ {val.price}</span></div>
                     <button className='add-cart' onClick={()=>dispatch({type:"ADD", payload:val})}>ADD TO CART</button>
+                    
                     <Link to={`/product/${val.id}`}><button className='btn'>READ MORE</button></Link>
                 </div>
             })
