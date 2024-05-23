@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom'
 import "./Home.css"
 import { cartContext } from '../../contextComponent/Context'
 
-const url = "https://fakestoreapi.com/products"
+
 
 const Home = () => {
 
     const [allData, setAllData] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
     const [errMsg, setErrMsg] = useState(false)
+    const [category, setCategory] = useState("")
+    const [limit, setLimit] = useState(5)
 
     const {dispatch} = cartContext()
     
@@ -22,7 +24,7 @@ const Home = () => {
 
         setIsLoading(true);
 
-        const data = await fetch(url);
+        const data = await fetch(`https://fakestoreapi.com/products/${category}?limit=${limit}`);
         const result = await data.json();
         if (result) {
             
@@ -41,8 +43,19 @@ const Home = () => {
 
   useEffect(()=>{
         apiData()
-  },[])
+  },[limit,category])
 
+  const handleClick = (event)=>{
+
+    console.log(allData);
+    console.log(category);
+    setCategory(event.target.value)
+    setLimit("")
+  }
+
+  console.log(category);
+  console.log(allData);
+  console.log(limit);
 
 
 
@@ -104,6 +117,9 @@ const Home = () => {
                 </div>
             })
         }
+
+        <div><button onClick={handleClick} value="category/jewelery">Jewelery</button>
+        <button onClick={handleClick}  value="">All</button></div>
       
     </div>
   )
