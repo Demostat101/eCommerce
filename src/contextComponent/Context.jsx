@@ -25,7 +25,7 @@ const Context = ({children}) => {
                     return state
                 } else {
                 return [...state, action.payload]
-            }
+                }
             
             case "INCREASE":
 
@@ -64,26 +64,36 @@ const Context = ({children}) => {
                     return temporaryState3;
                 
                 default:
+                    
                     return state;
-                }
-            };
-            
-            const getLocalCartData = ()=>{
-                let newCartData = localStorage.getItem("state");
-                if (newCartData === "[]") {
-                    return [];
-                } else {
-                    return JSON.parse(newCartData);
         }
+    };
+            
+           
+                  
+    
+    
+    const getLocalCartData = ()=>{
+        let newCartData = localStorage.getItem("state");
+        if (newCartData === "[]") {
+            return [];
+        } else {
+            return JSON.parse(newCartData);
+            }
     }
     
     
-    const [state, dispatch] =useReducer(reducer, [],getLocalCartData)
+    const [state, dispatch] =useReducer(reducer, [], getLocalCartData)
+   
+    
+    console.log(state);
     
     
     
     useEffect(()=>{
+
         localStorage.setItem("state", JSON.stringify(state));
+        
         
         
     },[state])

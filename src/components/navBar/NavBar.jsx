@@ -6,6 +6,7 @@ import { cartContext } from '../../contextComponent/Context'
 
 const NavBar = () => {
   const {state} = cartContext()
+  console.log(state);
 
   return (
     <div className='Nav-bar'>
