@@ -11,6 +11,8 @@ const url = "https://fakestoreapi.com/products"
 const Home = () => {
 
     const [allData, setAllData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false)
+    const [errMsg, setErrMsg] = useState(false)
 
     const {dispatch} = cartContext()
     
@@ -18,13 +20,22 @@ const Home = () => {
   const apiData = async ()=> {
     try {
 
+        setIsLoading(true);
+
         const data = await fetch(url);
         const result = await data.json();
-        setAllData(result)
+        if (result) {
+            
+            setAllData(result)
+            setIsLoading(false)
+        } 
         return allData
         
     } catch (error) {
+        setErrMsg(error.message)
+        setIsLoading(false)
         console.log(error);
+
     }
   }
 
@@ -35,9 +46,12 @@ const Home = () => {
 
 
 
+
+
   return (
     <div className='home'>
 
+        {isLoading ? <div className='isloading'>Page Loading!...</div> :"" }
         {
             allData.map((val)=>{
 
